@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Navigation.Master.cs" Inherits="WebApplication1.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <link rel="stylesheet" href="CSS.css" media="all"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+
+    </script>
+
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <div>   
+            <asp:ContentPlaceHolder ID="Menu" runat="server">
+                  <nav id="fixedbar">
+    <ul id="fixednav">
+      <li><a href="Home.aspx">Homepage</a></li>
+      <li><a href="Booking.aspx">Plan Your Journey</a></li>   
+      <li><a href="View.aspx">View Your Ticket</a></li> 
+      <li><a href="Update.aspx">Update Ticket</a></li>   
+      <li><a href="Location.aspx">Travel Locations</a></li>
+      <li><a href="News.aspx">News </a></li>      
+      
+      <li><a href="Login.aspx">Log Out</a></li>
+    </ul>
+                  </nav>
+
+                <div id="w">    
+    <nav id="navigation">
+      <ul>
+      <li><a href="Home.aspx">Homepage</a></li>
+      <li><a href="Booking.aspx">Plan Your Journey</a></li>   
+      <li><a href="View.aspx">View Your Ticket</a></li> 
+        <li><a href="Update.aspx">Update Ticket</a></li>   
+      <li><a href="Location.aspx">Travel Locations</a></li>
+      <li><a href="News.aspx">News </a></li>      
+      
+      <li><a href="Login.aspx">Log Out</a></li>
+      </ul>
+    </nav>
+                    </div>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#navigation a, #fixedbar a').on('click', function(e) {
+    e.preventDefault();
+  });
+  
+  $(window).on('scroll',function() {
+    var scrolltop = $(this).scrollTop();
+
+    if(scrolltop >= 215) {
+      $('#fixedbar').fadeIn(250);
+    }
+    
+    else if(scrolltop <= 210) {
+      $('#fixedbar').fadeOut(250);
+    }
+  });
+});
+</script>
+            </asp:ContentPlaceHolder>
+
+        <asp:ContentPlaceHolder ID="form" runat="server">
+
+        </asp:ContentPlaceHolder>
+  </div> 
+    <asp:ContentPlaceHolder ID="Footer" runat="server">
+        <h1>Welcome to Metro-Railways</h1>
+    </asp:ContentPlaceHolder>
+</body>
+</html>
